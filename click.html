@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIF Around the Screen</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: #f5f5dc;
+        font-family: sans-serif;
+        overflow: hidden;
+      }
+
+      #container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+      }
+
+      img {
+        position: absolute;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      h1 {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2rem;
+        color: #fff;
+        z-index: 10; /* Ensures text is always on top of GIFs */
+      }
+
+      .box {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #007bff;
+        padding: 15px 30px;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 10; /* Ensures the box is on top of GIFs */
+      }
+
+      .box a {
+        color: black;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+      }
+
+      .box a:hover {
+        background-color: #0056b3;
+        border-radius: 5px;
+        padding: 15px 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <h1>You're Gonna Be Alright 💫</h1>
+
+    <div class="box">
+      <a href="gif.html">Click Here</a>
+    </div>
+
+    <script>
+      const imgLinks = [
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/kendric%20lamar%20gif.gif?v=1744256686327",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/You%20Got%20This%20Go%20Get%20Em%20GIF%20by%20Shalita%20Grant.gif?v=1744257011427",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/You%20Got%20This%20Mental%20Health%20GIF%20by%20YouTube.gif?v=1744257452888",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/Adventure%20Going%20GIF.gif?v=1744266653776",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/You%20Are%20Awesome%20Dean%20Winchester%20GIF.gif?v=1744267068308",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/Channel%209%20Kid%20GIF%20by%20Married%20At%20First%20Sight%20Australia.gif?v=1744267200135",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/Stay%20Strong%20Stronger%20Together%20GIF%20by%20Studios%202016.gif?v=1744267674641",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/Andy%20Samberg%20Queue%20GIF.gif?v=1744267595412",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/humanity%20be%20excellent%20GIF.gif?v=1744271538787"
+      ];
+
+      const container = document.querySelector("#container");
+
+      // Place GIFs on each side of the screen
+      imgLinks.forEach((link, index) => {
+        const img = document.createElement("img");
+        img.src = link;
+
+        const randomScale = Math.random() * 0.6 + 0.3; // Random scale between 0.3 and 0.8
+        img.style.transform = `scale(${randomScale})`;
+
+        // Distribute GIFs across each side
+        if (index % 4 === 0) {
+          // Left side
+          img.style.left = '0';
+          img.style.top = `${Math.random() * (window.innerHeight - 150)}px`;
+        } else if (index % 4 === 1) {
+          // Right side
+          img.style.right = '0';
+          img.style.top = `${Math.random() * (window.innerHeight - 150)}px`;
+        } else if (index % 4 === 2) {
+          // Top side
+          img.style.top = '0';
+          img.style.left = `${Math.random() * (window.innerWidth - 150)}px`;
+        } else {
+          // Bottom side
+          img.style.bottom = '0';
+          img.style.left = `${Math.random() * (window.innerWidth - 150)}px`;
+        }
+
+        container.appendChild(img);
+      });
+    </script>
+  </body>
+</html>

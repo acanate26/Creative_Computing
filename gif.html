@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How do You Handle Being An Adult?</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        background-color: #f0f8ff;
+        color: #333;
+        overflow: hidden;
+      }
+
+      h1 {
+        margin-top: 20px;
+        font-size: 2.5rem;
+        color: #2c3e50;
+      }
+
+      .gif-container {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .gif-container img {
+        width: 500px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .button {
+        margin-top: 40px;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        color: white;
+        background-color: #3498db;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #2980b9;
+      }
+
+      .message {
+        margin-top: 20px;
+        font-size: 1.5rem;
+        color: #2c3e50;
+        display: none;
+      }
+      
+    }
+    </style>
+  </head>
+  <body>
+    <h1>How do You Handle Being An Adult?</h1>
+
+    <div class="gif-container" id="gif-container"></div>
+    
+    <button class="button" id="button">Click Here for Adulting Tips</button>
+
+    <div class="message" id="message">
+      
+  <p>Adulting is hard, but it gets better with time and patience! 🌱</p>
+    </div>
+
+    <script>
+      // Array of GIF links related to "adulting"
+      const gifLinks = [
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/kendric%20lamar%20gif.gif?v=1744256686327",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/You%20Got%20This%20Go%20Get%20Em%20GIF%20by%20Shalita%20Grant.gif?v=1744257011427",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/You%20Got%20This%20Mental%20Health%20GIF%20by%20YouTube.gif?v=1744257452888",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/Make%20It%20Stop%20Season%201%20GIF%20by%20SpongeBob%20SquarePants.gif?v=1744264559764",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/You%20Are%20Awesome%20Dean%20Winchester%20GIF.gif?v=1744267068308",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/Channel%209%20Kid%20GIF%20by%20Married%20At%20First%20Sight%20Australia.gif?v=1744267200135",
+        "https://cdn.glitch.global/bbf72d4b-7522-41bd-99a8-7657ed25c7bc/Stay%20Strong%20Stronger%20Together%20GIF%20by%20Studios%202016.gif?v=1744267674641"
+      ];
+
+      // Function to display a random GIF
+      function displayRandomGif() {
+        const randomIndex = Math.floor(Math.random() * gifLinks.length);
+        const img = document.createElement("img");
+        img.src = gifLinks[randomIndex];
+        img.alt = "Random GIF about adulting";
+        document.getElementById('gif-container').appendChild(img);
+      }
+
+      // Display a random GIF when the page loads
+      window.onload = displayRandomGif;
+
+      // Function to show the "adulting tips" message when the button is clicked
+      document.getElementById("button").addEventListener("click", function () {
+        document.getElementById("message").style.display = "block"; // Show the message
+      });
+    </script>
+  </body>
+</html>
